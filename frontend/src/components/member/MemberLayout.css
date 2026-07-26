@@ -1,0 +1,109 @@
+.member-shell {
+  min-height: 100vh;
+}
+
+.member-topbar {
+  height: var(--topbar-height);
+  background: #fff;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  gap: 24px;
+}
+
+.member-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.member-logo .logo-badge {
+  width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--color-primary-light);
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.member-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  justify-content: center;
+}
+.member-nav-link {
+  padding: 9px 16px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+.member-nav-link:hover { background: var(--color-bg); color: var(--color-text); }
+.member-nav-link.active { background: var(--color-primary-light); color: var(--color-primary); font-weight: 600; }
+
+.member-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.notif-bell {
+  position: relative;
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  font-size: 17px;
+  border: none;
+}
+.notif-dot {
+  position: absolute;
+  top: 8px; right: 9px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--color-danger);
+  border: 2px solid #fff;
+}
+
+.member-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.avatar-circle {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+}
+.member-user-name { font-weight: 600; font-size: 13.5px; }
+
+.logout-btn {
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+}
+.logout-btn:hover { background: var(--color-danger-bg); color: var(--color-danger); }
+
+.member-content {
+  padding: 26px 28px 40px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .member-nav { display: none; }
+  .member-user-name { display: none; }
+}

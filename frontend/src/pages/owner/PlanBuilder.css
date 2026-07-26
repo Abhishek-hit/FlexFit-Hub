@@ -1,0 +1,50 @@
+.day-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 18px 0 16px;
+}
+.day-tab {
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  position: relative;
+}
+.day-tab.filled::after {
+  content: '';
+  position: absolute; top: 6px; right: 6px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--color-success);
+}
+.day-tab.active { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+
+.exercise-row {
+  display: grid;
+  grid-template-columns: 2fr 0.8fr 0.8fr 0.9fr 1fr auto;
+  gap: 8px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+@media (max-width: 800px) {
+  .exercise-row { grid-template-columns: 1fr 1fr; }
+}
+
+.meal-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  margin-bottom: 12px;
+}
+.meal-card h4 { font-size: 13.5px; margin-bottom: 10px; }
+.meal-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 8px;
+}
+@media (max-width: 800px) {
+  .meal-grid { grid-template-columns: 1fr 1fr; }
+}
