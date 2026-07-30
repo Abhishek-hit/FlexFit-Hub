@@ -1,0 +1,66 @@
+# Ye file optional hai - agar chaho to Render Dashboard mein manually
+# bhi Web Service bana sakte ho bina is file ke (Dockerfile hi kaafi hai).
+# Ye file "Blueprint" deploy ke liye hai (render.com/docs/infrastructure-as-code)
+
+services:
+  - type: web
+    name: gym-management-api
+    runtime: docker
+    plan: free
+    region: singapore
+    envVars:
+      # ---- Database (zaroori) ----
+      - key: MONGODB_URI
+        sync: mongodb+srv://abhishek539700_db_user:VKaqecTIGZghsROh@cluster0.my3oemr.mongodb.net/GymVersew?retryWrites=true&w=majority&appName=Cluster0         # MongoDB Atlas connection string yahan Render dashboard mein daalo
+
+      # ---- Security (zaroori) ----
+      - key: JWT_SECRET
+        sync: JWT_SECRET:c2hoc2hzaGRnaGRnc2FoZGdzYWhkZ2FzaGRnc2FoZGdzYWhkZ2FzaGRnc2FoZGdhc2hkZ2FzaGRn        # koi bhi lamba random secret string
+
+      # ---- Mail / OTP (zaroori agar email OTP use ho raha hai) ----
+      - key: MAIL_HOST
+        value: smtp.gmail.com
+      - key: MAIL_PORT
+        value: 587
+      - key: MAIL_USERNAME
+        sync: rsharma44882@gmail.com          # tumhara Gmail address
+      - key: MAIL_PASSWORD
+        sync: tezw ktjo pfnu wytp          # Gmail App Password (16-digit), normal password nahi
+
+      # ---- Frontend Connection (zaroori) ----
+      - key: CORS_ORIGINS
+        sync: false          # apni Netlify URL yahan daalo, jaise https://your-app.netlify.app
+
+      # ---- Cloudinary / Image Upload (zaroori agar photo upload use ho raha hai) ----
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: v4ibtd8u
+      - key: CLOUDINARY_API_KEY
+        sync: 938455833577718
+      - key: CLOUDINARY_API_SECRET
+        sync: CtmWObUaTzE03uD7X-FQTjIo-LQ
+
+      # ---- SMS (optional - MOCK default hai, matlab real SMS nahi jaayega) ----
+      - key: SMS_PROVIDER
+        value: MOCK          # real SMS chahiye to TWILIO karo aur neeche 3 keys bharo
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      - key: TWILIO_FROM_NUMBER
+        sync: false
+
+      # ---- WhatsApp (optional - MOCK default hai) ----
+      - key: WHATSAPP_PROVIDER
+        value: MOCK          # real WhatsApp chahiye to META_CLOUD_API karo aur neeche 2 keys bharo
+      - key: WHATSAPP_ACCESS_TOKEN
+        sync: false
+      - key: WHATSAPP_PHONE_NUMBER_ID
+        sync: false
+
+      # ---- Payment (optional - MOCK default hai) ----
+      - key: PAYMENT_PROVIDER
+        value: MOCK          # real payment chahiye to RAZORPAY karo aur neeche 2 keys bharo
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
