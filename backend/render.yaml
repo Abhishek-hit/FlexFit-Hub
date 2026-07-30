@@ -33,11 +33,11 @@ services:
 
       # ---- Cloudinary / Image Upload (zaroori agar photo upload use ho raha hai) ----
       - key: CLOUDINARY_CLOUD_NAME
-        sync: v4ibtd8u
+        sync:
       - key: CLOUDINARY_API_KEY
         sync: 938455833577718
       - key: CLOUDINARY_API_SECRET
-        sync: CtmWObUaTzE03uD7X-FQTjIo-LQ
+        sync: CtmWv4ibtd8uObUaTzE03uD7X-FQTjIo-LQ
 
       # ---- SMS (optional - MOCK default hai, matlab real SMS nahi jaayega) ----
       - key: SMS_PROVIDER
